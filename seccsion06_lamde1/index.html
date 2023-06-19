@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Angularjs-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <!--JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--Assignment Resource-->
+    <script src="IndexController.js"></script>
+    <title>Index</title>
+    <style>    
+        * {
+            font-family: tahoma;
+            box-sizing: border-box;
+        }
+
+        .nav {
+            width: 100%;
+            border-top: 2px solid blue;
+            border-bottom: 2px solid blue;
+            overflow: auto;
+        }
+
+        .nav a {
+            width: 20%;
+            float: left;
+            text-align: center;
+            text-decoration: none;
+            color: rgb(1, 100, 14);
+            padding: 10px;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        .form-group {
+            padding: 5px;
+            margin: 3px;
+        }
+    </style>
+</head>
+<body class="container-fluid" ng-app="myApp" ng-controller="myCtrl">
+    <header>
+        <div align="right">
+            <input ng-model="txtSearch" placeholder="Enter your search">
+        </div>
+
+        <div class="nav">
+            <a href="#/!">Home</a>
+            <a href="">Utilities</a>
+            <a href="#!List">Product</a>
+            <a href="#!Add">Add New</a>
+            <a href="">About</a>
+        </div>
+
+    </header>
+
+    <section>
+        <form class="p-3 was-validated text-center" action="">
+            <div class="tt bg-light border rounded">
+
+                <div class="row form-group">
+                    <label class="col-lg-4 col-form-label text-end fw-bold" for="">No</label>
+                    <div class="col-lg-4">
+                        <input class="form-control" type="text" ng-model="personClass.no" required>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <label class="col-lg-4 col-form-label text-end fw-bold" for="">Student</label>
+                    <div class="col-lg-4">
+                        <input class="form-control" type="text" ng-model="personClass.student" required>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <label class="col-lg-4 col-form-label text-end fw-bold" for="">Course</label>
+                    <div class="col-lg-4">
+                        <input class="form-control" type="text" required ng-model="personClass.course">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <label class="col-lg-4 col-form-label text-end fw-bold" for="">Birthday</label>
+                    <div class="col-lg-4">
+                        <input class="form-control" type="text" required ng-model="personClass.birthday">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <label class="col-lg-4 col-form-label text-end" for=""></label>
+                    <div class="col-lg-4">
+                        <input class="btn btn-primary" type="submit" value="Save" ng-click="addData()" ng-disabled="btnSave">
+                        <input class="btn btn-success" type="submit" value="Update" ng-disabled="btnUpdate" ng-click="updateData()">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+       <table class="table table-hover">
+            <tr>
+                <th>No</th>
+                <th ng-click="doSort('student')">Student</th>
+                <th ng-click="doSort('course')">Course</th>
+                <th ng-click="doSort('birthday')">Birthday</th>
+                <th>Function</th>
+            </tr>
+            <tr ng-repeat="person in studentLists | filter: txtSearch | orderBy:filted:reverse " ng-click="getRecord(person)">
+                <td>{{ person.no  }}</td>
+                <td>{{ person.student  }}</td>
+                <td>{{ person.course  }}</td>
+                <td>{{ person.birthday }}</td>
+                <td>
+                    <input ng-click="deleteData(data)" type="submit" value="Delete">
+                    <input type="submit" value="Edit">
+                </td>
+            </tr>
+           
+       </table>
+    </section>
+
+    <footer>
+        <p align="center">&copy; 2022 By me. All rights reserved</p>
+    </footer>
+</body>
+</html>
