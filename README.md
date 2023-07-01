@@ -9,21 +9,24 @@
 : I
 
 + Batch No
-: [Your class name]
+: [T5.2303.E0]
 
 + Group No:
-: [your group no]
+: [Group 04]
 
 + List Of Member:
 
-1. Lê Văn A
-(Student0000001)
+1. Phạm Hoài NHân
+(Student1468188)
 
-2. Trần Văn Sê
-(Student0000002)
+2. Đặng Thị Bích Nga
+(Student1468184)
 
-3. Nguyễn Thị Bê
-(Student0000003)
+3. Nguyễn Quang Huy
+(Student1468178)
+
+4. Trương Nguyễn Nguyên Chương
+(Student1468205)
 
 =======================================
 
